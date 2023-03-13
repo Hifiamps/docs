@@ -47,7 +47,7 @@ The PCB dimensions and layout conform to the Raspberry Pi "Hardware Attached on 
 
 ## 2.1 PCB Layout
 
-The Computer Aided Design (CAD) drawing of the PCB shows the board layout and location of the component parts. The design allows for several variations including axial or radial output I/V capacitors and RCA jacks or direct wiring to L/R channels.
+The Computer Aided Design (CAD) drawing of the PCB shows the board layout and location of the component parts. The design allows for several variations including axial or radial output coupling capacitors and RCA jacks or direct wiring to L/R channels.
 
 ![](images/protodac_pcb_rev2_500.jpg)
 
