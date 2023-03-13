@@ -90,7 +90,7 @@ The module is implemented as a 28 pin DIP/DIL package. The module is only connec
 
 Component parts for the DAC are readily available from various suppliers but since the Philips TDA1387 chips are not produced anymore the 8 x parallel chip module long term availability cannot be guaranteed.
 
-## 3.1 I/V resistors
+## 3.1 I/V resistors (U3, U4)
 
 ### Type of resistor
 
@@ -104,7 +104,7 @@ Bulk metal foil can be ordered to spec, but they are expensive. Metal film sound
 
 ![](images/protodac_thd_distortion_600_v3.jpg)
 
-Excessive distortion is created when the DAC is clipping. Fortunately, the TDA1387 has a high voltage compliance of 3.5V at 5V Vcc. Clipping occurs if the AC signal exceeds +3.5V or 0V. The final calculation depends on the I/V resistance and the module with its particular characteristics (DC current at idle, and the peak to peak current at full signal).  The I/V resistor should be no larger than 430R for Vcc of 5 VDC.
+Excessive distortion is created when the DAC is clipping. Fortunately, the TDA1387 has a high voltage compliance of 3.5V at 5V Vcc. Clipping occurs if the AC signal on the output pins exceed +3.5V or 0V. The final calculation depends on the I/V resistance and the module with its particular characteristics (DC current at idle, and the peak to peak current at full signal).  The I/V resistor should be no larger than 430R for Vcc of 5 VDC.
 
 Since there are variations in the modules, it would be prudent to measure the distortion with various resistances in the target range with your module, before buying expensive I/V resistors. This would be especially the case if you are trying to push the 430R limit or the Vcc maximum of the TDA1387. You can measure distortion with a computer, USB audio interface and REW. The most reliable method would be to use cheap metal films in 430R value, and check distortion with the variations in resistance values, based on accurate resistance measurements with a DMM. Another factor will be supply voltage, which can change full scale output current. So use the same supply voltage with the expensive I/V resistors.
 
@@ -112,29 +112,27 @@ The Vishay Z-foil resistors from Texas Components (TX2575) come in either 470R (
 
 The output signal voltage decreases with a lower I/V resistor, and this may be a factor to consider in your particular system. Do you have a preamplifier that can amplify a weak signal from the DAC?
 
-TeraDak TDA1387 x8 uses 390R I/V with 8000uF, which has a screen-like image (no depth). I have seen earlier versions with a 560R I/V resistor, so it seems they have corrected this problem with more recent versions. The larger capacitance somewhat compensates sonically for clipping. The L1387 USB x8 uses 560R with 1300uF. The I/V resistor is too high, clipping will occur at 0dB.
+The source of Vishay S and Z-foil resistors in the US is Texas Components, and in Europe it is Charcroft . TX2575 are about $13 each without shipping. The TX2352 or S-foil is the "original" foil naked audio resistor, and are about $9 each. The Vishay S and Z foil resistors are vastly better performing in this DAC than other types of resistors.
 
-The source of Vishay S and Z-foil resistors in the US is Texas Components, and in Europe it is Charcroft . TX2575 are about $13 each without shipping. The TX2352 or S-foil is the "original" foil naked audio resistor, and are about $9 each. The Vishay S and Z foil resistors are vastly better performing in this DAC than other types.
+## 3.2 I2S resistors (R1-R3)
 
-## 3.2 I2S resistors
+430R or 470R generic 1/8 or 1/4W metal film. The purpose is to limit high frequency noise on the I2S lines. I have used unshielded 10cm jumpers to an outboard proto board without a problem. 
 
-430R or 470R generic 1/8 or 1/4W metal film. The purpose is to limit high frequency noise on the I2S lines. I have used unshielded 10cm jumpers to an outboard proto board without a problem. Mount close to the module.
+## 3.3 Electrolytic decoupling capacitors (C3, C4)
 
-## 3.3 Electrolytic decoupling capacitors
+The choice of Vcc electrolytic decoupling capacitor (C3, C4) depends on the value of the I/V resistor in an inverse relationship. As the I/V resistor decreases, the capacitor needs to increase. If the capacitor is too low in value for the I/V resistor, the sound with be anemic, with weak bass and dynamics, but more 3D with deep soundstage. If the capacitor value is too high for the I/V resistor, the depth of soundstage will decrease.
 
-The choice of Vcc electrolytic decoupling capacitor depends on the value of the I/V resistor in an inverse relationship. As the I/V resistor decreases, the capacitor needs to increase. If the capacitor is too low in value for the I/V resistor, the sound with be anemic, with weak bass and dynamics, but more 3D with deep soundstage. If the capacitor value is too high for the I/V resistor, the depth of soundstage will decrease.
+For a 430R I/V resistor, 1800-2200uF is about right. You can use capacitors in parallel for better sound quality. 
 
-For a 430R I/V resistor, 1800-2200uF is about right. You can use capacitors in parallel for better sound quality. Additional caps can be added in the open area below the module and between the output coupling caps. Connect positive to the 5V strip and negative to the 3V3 side GND strip with jumper wires. Listen to various values by press fitting before soldering.
+## 3.4 Output coupling capacitors (C1, C2, C5, C6)
 
-## 3.4 Output coupling capacitors
+These capacitors can vary considerably in size, quality and price. The PCB can accommodate fairly large capacitors, with either axial or radial package.  Options are to use C1 and C2 (axial lead capacitors) or C5 and C6 (radial lead capacitors with 37.5mm spacing).
 
-These capacitors can vary considerably in size, quality and price. You may want to press fit these in place to try different types before soldering.
+The value should be around 10 uF, but can be as low as 4.7 uF. With a standard 10k impedence, 10 uF will give a low frequency -3dB of 1.59 Hz. 4.7 uF will give a low frequency -3dB of 3.38 Hz.  You want the low frequency cutoff to be well below 20 Hz, ideally less than 2 Hz.
 
-The value should be around 10 uF, but can be as low as 4.7 uF. With standard 10k impedence, 10 uF will give a low frequency -3dB of 1.59 Hz. 4.7 uF will give a low frequency -3dB of 3.38 Hz.  You want the low frequency cutoff to be well below 20 Hz, ideally less than 2 Hz.
+A metal foil and film capacitor will be the highest quality, but is physically larger (probably will not fit) and more expensive.  
 
-A metal foil and film capacitor will be the highest quality, but physically larger and more expensive.  
-
-A basic polypropylene metallized film capacitor is a WIMA MKP4 or MKP10 with radial leads. Digi-Key has MKP4D046806F00JSSD which is a 6.8uF 100VDC currently in stock. WIMA MKP are commonly available, competent sounding and are a good choice for this project. Generally, most polypropylene capacitors will be satisfactory. Panasonic ECW and EZP PP caps are good, and relatively small for capacitance. PP caps can also be purchased from speaker components suppliers, where they are used as crossover caps. For example, Parts-Express, Madisound, Speaker City USA, etc. It is best to get the lowest voltage rating available, which will reduce the size. Panasonic, Solen and WIMA PP caps tend to be neutral sounding without any annoying qualities.  Humble Homemade Hifi has some capacitor ratings.
+A basic polypropylene metallized film capacitor is a WIMA MKP4 or MKP10 with radial leads. Digi-Key has MKP4D046806F00JSSD which is a 6.8uF 100VDC currently in stock. WIMA MKP are commonly available, competent sounding and are a good choice for this project. Generally, most metallized polypropylene film capacitors will be satisfactory. Panasonic ECW and EZP PP caps are good, and relatively small for capacitance. PP caps can also be purchased from speaker components suppliers, where they are used as crossover caps. For example, Parts-Express, Madisound, Speaker City USA, etc. It is best to get the lowest voltage rating available, which will reduce the size. Panasonic, Solen and WIMA PP caps tend to be neutral sounding without any annoying qualities.  Humble Homemade Hifi has some capacitor ratings.
 
 Boutique film capacitors can be very expensive and are often too large for the available space on the HAT. Metallized polypropylene tend to be the best value.
 
