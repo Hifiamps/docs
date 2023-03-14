@@ -55,12 +55,12 @@ The Computer Aided Design (CAD) drawing of the PCB shows the board layout and lo
 
 |Reference designator|Component|Description|
 |:-|:-|:-|
-|C2|?|?
+|C1,C2|4.7-10uF polypropylene film capacitor with axial leads. Lead spacing 49mm with RCA jacks and 54mm without. These are optional part choices for C5, C6. |
 |C3,C4|Electrolytic capacitors|Audio grade 1000uF 6.3V Nichicon UKA or Panasonic FR-A 10mm diameter and 5mm lead spacing.|
-|C5-C6|Output capacitors|4.7-10uF polypropylene film capacitor. Radial leads with 37.5mm LS, and axial leads with 49mm LS using RCA jacks, and up to 54mm LS without RCA jacks.|
+|C5-C6|Output capacitors|4.7-10uF polypropylene film capacitor. Radial leads with 37.5mm LS. Optional part choices for C1, C2. |
 |R1-R3|Film Resistors|430R or 470R 1/4W generic metal film resistors Stackpole RNMF14FTC430R/RNMF14FTC470R or similar.|
-|U3,U4 ?? (R4-R5)|Foil Resistors|Audio grade Bulk Metal Foil resistors, through hole 420R. Texas Components TX2352 or TX2575 (Vishay) https://www.texascomponents.com/store/home.asp or Charcroft in EU|
-|U1 ?? (H1)|GPIO Header|2X20P Female 40 position header connector 0.100" (2.54mm) through hole gold. DigiKey S7123-ND or eBay/AliExpress|
+|R4,R5)|Foil Resistors|Audio grade Bulk Metal Foil resistors, through hole 420R. Texas Components TX2352 [http://webdirect.texascomponents.com/ProductDetails.asp?ProductCode=TX2352_Custom_100-10K_0%2E1] or TX2575 (Vishay) [http://webdirect.texascomponents.com/ProductDetails.asp?ProductCode=TX2575_Custom_100-to-10K_0%2E1]. Specifiy 420R in the comments of the order. In the EU,  Charcroft through hificollective [https://www.hificollective.co.uk/components/car_resistors.html]|
+|H1|GPIO Header|2X20P Female 40 position header connector 0.100" (2.54mm) through hole gold. DigiKey S7123-ND or eBay/AliExpress|
 |U2|TDA1387 Module|TDA1387 x 8 Parallel Module Substitution for TDA1541. Available on eBay/AliExpress search "tda1387 tda1541" or "hifi 8pcs tda1387"|
 |L/R|RCA Jacks|CA right angle PCB mount RJ-255A. Available on eBay/AliExpress search "RCA PCB DAC"|
 
@@ -117,7 +117,7 @@ The module is implemented as a 28 pin DIP. The module is only connected by pins 
 
 Component parts for the DAC are readily available from various suppliers but since the Philips TDA1387 chips are not produced anymore the 8 x parallel chip module long term availability cannot be guaranteed.
 
-## 3.1 Current to Voltage (I/V) resistors
+## 3.1 Current to Voltage (I/V) resistors (R4, R5)
 
 ### Resistor type
 
